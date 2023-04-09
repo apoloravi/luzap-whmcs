@@ -33,7 +33,7 @@ function whatsappgateway_config()
 		'description' => 'Módulo de notificações via WHMCS integrado ao WhatsApp API LuZap.',
 		'version'     => '1.2',
 		'language'    => 'portuguese-br',
-		'author'      => 'HiperSend.App'
+		'author'      => 'HiperSend.App | Modificado Apolo Ravi'
 	];
 }
 
@@ -445,7 +445,7 @@ function whatsappgateway_output($vars)
 											</div>
 										</div>
 										<div class="modal-footer">
-											<button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+											<button ty$qrCode = new QrCode('https://example.com');pe="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
 											<button type="submit" class="btn btn-primary">Salvar</button>
 										</div>
 									</form>
