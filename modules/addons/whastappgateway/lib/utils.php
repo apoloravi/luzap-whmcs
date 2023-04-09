@@ -8,7 +8,7 @@
  * GARANTIMOS A FUNCIONALIDADE DESTE ARQUIVO CASO O MESMO NÃO SOFRA ALTERAÇÕES.
  *
  * @package   HiperSend
- * @author    HiperSend
+ * @author    HiperSend | Modificada por Apolo Ravi
  * @copyright 2021-2022
  * @link      https://HiperSend.com.br
  * @since     Version 1.2 (27-04-2022)
