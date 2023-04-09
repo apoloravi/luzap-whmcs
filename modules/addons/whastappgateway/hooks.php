@@ -98,6 +98,7 @@ add_hook('InvoiceCreated', 1, function($vars)
 			$wg->templates[1]->message = str_replace('%name%', $client->firstname, $wg->templates[1]->message);
 			$wg->templates[1]->message = str_replace('%email%', $client->email, $wg->templates[1]->message);
 			$wg->templates[1]->message = str_replace('%invoiceid%', $vars['invoiceid'], $wg->templates[1]->message);
+			$wg->templates[1]->message = str_replace('%id%', $client->id, $wg->templates[1]->message);
 			$wg->templates[1]->message = str_replace('%duedate%', AdjustDate($invoice->duedate), $wg->templates[1]->message);
 			$wg->templates[1]->message = str_replace('%value%', AdjustValue($invoice->total), $wg->templates[1]->message);
 			$wg->templates[1]->message = str_replace('%linkboleto%', $URLBoleto, $wg->templates[1]->message);
@@ -165,9 +166,11 @@ add_hook('InvoiceCancelled', 1, function($vars)
 			$wg->templates[13]->message = str_replace('%name%', $client->firstname, $wg->templates[13]->message);
 			$wg->templates[13]->message = str_replace('%email%', $client->email, $wg->templates[13]->message);
 			$wg->templates[13]->message = str_replace('%invoiceid%', $vars['invoiceid'], $wg->templates[13]->message);
+			$wg->templates[13]->message = str_replace('%id%', $client->id, $wg->templates[13]->message);
 			$wg->templates[13]->message = str_replace('%duedate%', AdjustDate($invoice->duedate), $wg->templates[13]->message);
 			$wg->templates[13]->message = str_replace('%value%', AdjustValue($invoice->total), $wg->templates[13]->message);
 			$wg->templates[13]->message = str_replace('%linkboleto%', $URLBoleto, $wg->templates[13]->message);
+			$wg->templates[13]->message = str_replace('%ampersand%', $ampersand, $twg->templates[13]->message);
 			$wg->SendMessage($client, $wg->templates[13]->message);
 		}
 	}
@@ -227,12 +230,15 @@ add_hook('InvoicePaymentReminder', 1, function($vars)
 				$URLBoleto 		= "";
 			}
 			$client = Client::find($invoice->userid);
+			$ampersand = "&";
 			$wg->templates[2]->message = str_replace('%name%', $client->firstname, $wg->templates[2]->message);
 			$wg->templates[2]->message = str_replace('%email%', $client->email, $wg->templates[2]->message);
-			$wg->templates[2]->message = str_replace('%invoiceid%', $vars['invoiceid'], $wg->templates[2]->message);
+			$wg->templates[2]->message = str_replace('%invoiceid%', $vars['invoiceid'], $wg->templates[2]->message)				;
+			$wg->templates[2]->message = str_replace('%id%', $client->id, $wg->templates[2]->message);
 			$wg->templates[2]->message = str_replace('%duedate%', AdjustDate($invoice->duedate), $wg->templates[2]->message);
 			$wg->templates[2]->message = str_replace('%value%', AdjustValue($invoice->total), $wg->templates[2]->message);
 			$wg->templates[2]->message = str_replace('%linkboleto%', $URLBoleto, $wg->templates[2]->message);
+			$wg->templates[2]->message = str_replace('%ampersand%', $ampersand, $twg->templates[2]->message);
 			$wg->SendMessage($client, $wg->templates[2]->message);
 		}
 	}
@@ -292,12 +298,15 @@ add_hook('InvoicePaid', 1, function($vars)
 				$URLBoleto 		= "";
 			}
 			$client = Client::find($invoice->userid);
+			$ampersand = "&";
 			$wg->templates[3]->message = str_replace('%name%', $client->firstname, $wg->templates[3]->message);
 			$wg->templates[3]->message = str_replace('%email%', $client->email, $wg->templates[3]->message);
 			$wg->templates[3]->message = str_replace('%invoiceid%', $vars['invoiceid'], $wg->templates[3]->message);
+			$wg->templates[3]->message = str_replace('%id%', $client->id, $wg->templates[3]->message);
 			$wg->templates[3]->message = str_replace('%duedate%', AdjustDate($invoice->duedate), $wg->templates[3]->message);
 			$wg->templates[3]->message = str_replace('%value%', AdjustValue($invoice->total), $wg->templates[3]->message);
 			$wg->templates[3]->message = str_replace('%linkboleto%', $URLBoleto, $wg->templates[3]->message);
+			$wg->templates[3]->message = str_replace('%ampersand%', $ampersand, $twg->templates[3]->message);
 			$wg->SendMessage($client, $wg->templates[3]->message);
 		}
 	}
