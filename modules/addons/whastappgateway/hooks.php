@@ -8,7 +8,7 @@
  * GARANTIMOS A FUNCIONALIDADE DESTE ARQUIVO CASO O MESMO NÃO SOFRA ALTERAÇÕES.
  *
  * @package   HiperSend
- * @author    HiperSend
+ * @author    HiperSend | Modificado por Apolo Ravi
  * @copyright 2021-2022
  * @link      https://HiperSend.com.br
  * @since     Version 1.2 (27-04-2022)
@@ -161,6 +161,7 @@ add_hook('InvoiceCancelled', 1, function($vars)
 		if ($wg->config->status === 'active' && $wg->templates[13]->status === 'active')
 		{
 			$client = Client::find($invoice->userid);
+			$ampersand = "&";
 			$wg->templates[13]->message = str_replace('%name%', $client->firstname, $wg->templates[13]->message);
 			$wg->templates[13]->message = str_replace('%email%', $client->email, $wg->templates[13]->message);
 			$wg->templates[13]->message = str_replace('%invoiceid%', $vars['invoiceid'], $wg->templates[13]->message);
